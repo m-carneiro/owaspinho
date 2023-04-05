@@ -1,0 +1,72 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Diretórios de dependências
+node_modules
+jspm_packages
+.pnpm
+
+# Diretórios de build e distribuição
+dist
+build
+out
+
+# Diretórios de cache
+.next
+.cache
+.nuxt
+
+# Arquivos de ambiente
+.env
+.env.*
+!.env.example
+!.env.sample
+
+# Arquivos temporários
+tmp
+.temp
+
+# Sistemas de gerenciamento de pacotes
+.pnpm-workspace.yaml
+.yarnrc
+.yarnrc.yml
+.npmrc
+
+# Ferramentas de teste e linting
+coverage
+.nyc_output
+
+# Arquivos de IDE e editores de texto
+.vscode
+.idea
+*.sublime-workspace
+*.sublime-project
+*.sw?
+*.swo
+*.bak
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+.directory
+__MACOSX
+*.bak
+
+# Outros
+*.pid
+*.seed
+*.out
+*.gz
+*.tgz
+*.zip
+*.tar
+*.tar.*
+*.log
+*.sqlite
+*.sqlite3
+*.tsbuildinfo
