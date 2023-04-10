@@ -1,14 +1,8 @@
 version: '3.8'
 services:
-  app:
-    build: .
-    ports:
-      - "3000:3000"
-    depends_on:
-      - db
-
   db:
     image: mysql:8.0
+    container_name: db
     environment:
       MYSQL_ROOT_PASSWORD: rootinho
       MYSQL_DATABASE: rooto
@@ -19,6 +13,20 @@ services:
     volumes:
       - db_data:/var/lib/mysql
     command: --default-authentication-plugin=mysql_native_password
+ 
+  app:
+    container_name: app
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+
 
 volumes:
   db_data:
+
+networks:
+  default:
+     attachable: true
+
