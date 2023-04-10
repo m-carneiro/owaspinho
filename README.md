@@ -3,7 +3,7 @@
 
 ## XSS
 ```
-/?content=%3Cscript%3Ealert%281%29%3C%2Fscript%3E
+/?useriInput=%3Cscript%3Ealert%281%29%3C%2Fscript%3E
 ```
 ## SQL Injection
 ```
