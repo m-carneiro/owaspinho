@@ -10,6 +10,7 @@
 ## Execução
 
 ```
+$ unzip owaspinho.zip
 $ cd owaspinho
 $ docker-compose up
 ```
