@@ -7,6 +7,11 @@
     - [RCE](#rce)
 
 
+
+## Desafio
+
+Leia as instruções [aqui](DESAFIO.md).
+
 ## Execução
 
 ```
