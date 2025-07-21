@@ -1,16 +1,10 @@
-const { Sequelize } = require('sequelize');
+const sqlite3 = require('sqlite3').verbose();
+const database = new sqlite3.Database('./rootinho.db');
 
-const sequelize = new Sequelize({
-    dialect: 'sqlite',
-    storage: './database.sqlite'
-  });
-
-
-sequelize.authenticate().then(() => {
-    console.log('Connection established' + sequelize.threadId);
-}).catch((err) => {
-    console.log('Error connecting to Db' + err.stack);
-    return;
+database.serialize(() => {
+    database.run("CREATE TABLE IF NOT EXISTS users (id INT, name TEXT)");
+    database.run("INSERT OR IGNORE INTO users (id, name) VALUES (1, 'Admin'), (2, 'Alice'), (3, 'Bob')");
 });
 
-module.exports = sequelize;
+
+module.exports = database;

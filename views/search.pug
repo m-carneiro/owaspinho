@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    title Página de Busca
+    style.
+      body { font-family: sans-serif; padding: 20px; }
+      input { padding: 5px; }
+      button { padding: 5px; }
+  body
+    h1 Faça sua busca
+
+    form(action="/search", method="GET")
+      input(type="text", name="q", placeholder="Digite aqui...")
+      button(type="submit") Buscar
+
+    if query
+      hr
+      h3 Resultado:
+      p!= `Você buscou por: ${query}`
