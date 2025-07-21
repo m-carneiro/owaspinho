@@ -2,7 +2,25 @@ const express = require('express');
 const router = express.Router();
 const database = require('../database/databaseConnection');
 
-router.get('/', function (req, res, next) {
+
+router.get('/users/:id', (req, res) => {
+    const id = req.params.id;
+    const queryString = `SELECT * FROM matabase WHERE id='${id}';`;
+
+    database.query(queryString, (err, rows, fields) => {
+        if (err) {
+            console.log('Failed to query for users: ' + err);
+            res.sendStatus(500);
+            res.end();
+            return;
+        }
+        console.log('Fetched users successfully');
+
+        res.json(rows);
+    });
+});
+
+router.get('/users/search', function (req, res, next) {
     const username = req.query.username;
     const accessToken = req.query['access-token'];
 
@@ -15,7 +33,7 @@ router.get('/', function (req, res, next) {
             res.end();
             return;
         }
-        console.log('I think we fetched users successfully');
+        console.log('Fetched users successfully');
 
         res.json(rows);
     });
