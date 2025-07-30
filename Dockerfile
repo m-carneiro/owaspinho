@@ -1,12 +1,16 @@
 FROM node:14-alpine
 
+RUN apk add --no-cache \
+    python3 \
+    make \
+    g++ \
+    && python3 -m ensurepip \
+    && pip3 install --no-cache --upgrade pip setuptools
+
 WORKDIR /app
 
 COPY package*.json ./
 
-RUN apk add --update python3 make g++ && rm -rf /var/cache/apk/*
-RUN npm install -g npm@latest
-RUN npm install --python=python2.7
 RUN npm install
 
 COPY . .
